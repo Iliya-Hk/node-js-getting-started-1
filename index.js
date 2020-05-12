@@ -1,13 +1,14 @@
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
-
-express()
-    .use(express.static(path.join(__dirname, "/")))
-    //.set('views', path.join(__dirname, 'views'))
-    //.set('view engine', 'ejs')
-    .get("/", (req, res) => res.send("./index.html"))
-    .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+    /*
+    express()
+        .use(express.static(path.join(__dirname, "/")))
+        //.set('views', path.join(__dirname, 'views'))
+        //.set('view engine', 'ejs')
+        .get("/", (req, res) => res.send("./index.html"))
+        .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+        */
 
 //const express = require('express');
 const bodyParser = require('body-parser');
@@ -38,7 +39,7 @@ const MessageStructure = mongoose.model('messages', {
     text: String,
 });
 
-app.use(express.static(__dirname));
+app.use(express.static(__dirname, "/"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
