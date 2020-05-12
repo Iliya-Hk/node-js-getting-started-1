@@ -13,7 +13,7 @@ express()
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const port = 3000;
+//const port = 3000;
 const app = express();
 const http = require('http').Server(app);
 
@@ -68,6 +68,6 @@ io.on('connection', (socket) => {
     console.log('a user connected');
 });
 
-http.listen(port, () => {
-    console.log(`server is running on the port ${port}`);
+http.listen(PORT, () => {
+    console.log(`server is running on the port ${PORT}`);
 });
