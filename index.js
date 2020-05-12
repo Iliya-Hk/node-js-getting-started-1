@@ -1,4 +1,3 @@
-/*
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
@@ -9,13 +8,12 @@ express()
     //.set('view engine', 'ejs')
     .get("/", (req, res) => res.send("./index.html"))
     .listen(PORT, () => console.log(`Listening on ${ PORT }`))
-*/
-const path = require('path');
-const express = require('express');
+
+//const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const port = process.env.PORT || 5000;
+const port = 3000;
 const app = express();
 const http = require('http').Server(app);
 
@@ -40,20 +38,18 @@ const MessageStructure = mongoose.model('messages', {
     text: String,
 });
 
-app.use(express.static(path.join(__dirname, "/")));
+app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-//app.get("/", (req, res) => res.send("./index.html"))
+
 app.get('/messageEndpoint', (request, response) => {
     MessageStructure.find({}, (err, allMessages) => {
         if (err) {
             response.sendStatus(500);
         }
-        response.send("./index.html");
         response.send(allMessages);
-        console.log("something")
     });
 });
 
