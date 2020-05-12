@@ -39,7 +39,7 @@ const MessageStructure = mongoose.model('messages', {
     text: String,
 });
 
-app.use(express.static(__dirname, "/"));
+app.use(express.static(path.join(__dirname, "/")));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
