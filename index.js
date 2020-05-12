@@ -10,7 +10,7 @@ express()
     .get("/", (req, res) => res.send("./index.html"))
     .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 */
-const path = require('path')
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
