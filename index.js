@@ -45,7 +45,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-//app.get("/", (req, res) => res.send("./index.html"))
+app.get("/", (req, res) => res.send("./index.html"))
 app.get('/messageEndpoint', (request, response) => {
     MessageStructure.find({}, (err, allMessages) => {
         if (err) {
