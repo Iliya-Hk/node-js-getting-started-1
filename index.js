@@ -15,7 +15,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const port = 3000;
+const port = process.env.PORT || 5000;
 const app = express();
 const http = require('http').Server(app);
 
